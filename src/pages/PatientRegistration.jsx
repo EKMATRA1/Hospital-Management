@@ -52,8 +52,9 @@ const handleSubmit = async (e) => {
       emergency: "",
     });
   } catch (error) {
-    alert("❌ Error: " + error.response?.data?.message);
-  }
+  const msg = error.response?.data?.message || error.response?.data?.error || error.message;
+  alert("❌ Error: " + msg);
+}
 };
   return (
     <div className="patient-page">
